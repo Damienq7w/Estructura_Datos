@@ -7,19 +7,11 @@ package Transmision;
  * Representa un objeto fisico (mesa, celular, perilla, etc.)
  * que puede o no tener presencia del virus en su superficie.
  *
- * Un objeto NUNCA se infecta a si mismo: unicamente queda
- * CONTAMINADO cuando una persona infectada estornuda sobre el.
- *
- * ------------------------------------------------------------
- * ESTADO DEL SISTEMA (definido en el enunciado del ejercicio):
- *   contaminado : indica si el objeto tiene presencia del virus
+ * Un objeto nunca se infecta a si mismo: unicamente queda
+ * contaminado cuando una persona infectada estornuda sobre el.
  * ------------------------------------------------------------
  * DATO PRIMITIVO USADO:
  *   boolean contaminado;
- *
- *   Se usa "boolean" porque el estado de un objeto dentro de
- *   este TDA solo admite dos valores logicos posibles:
- *   contaminado (true) o limpio (false).
  * ============================================================
  */
 public class Objeto {

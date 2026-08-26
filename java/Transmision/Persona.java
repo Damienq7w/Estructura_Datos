@@ -5,25 +5,16 @@ package Transmision;
  * ============================================================
  * Representa a una persona dentro de la cadena de transmision
  * por contacto.
- *
  * ------------------------------------------------------------
- * ESTADO DEL SISTEMA (definido en el enunciado del ejercicio):
+ * ESTADO DEL SISTEMA :
  *   infectada         : indica si la persona esta infectada
  *   manosContaminadas : indica si tiene el virus en las manos
- *                        (una persona PUEDE tener las manos
- *                        contaminadas SIN estar infectada)
+ *                        (una persona puede tener las manos
+ *                        contaminadas sin estar infectada)
  * ------------------------------------------------------------
  * DATOS PRIMITIVOS USADOS:
  *   boolean infectada;
  *   boolean manosContaminadas;
- *
- *   Ambos atributos son de tipo "boolean" porque cada uno modela
- *   una condicion de si/no (verdadero/falso). En Java, la
- *   Persona (el objeto contenedor) siempre vive en el heap; estos
- *   dos booleanos viven embebidos dentro de ese mismo bloque de
- *   memoria del objeto, sin autoboxing y sin reservar heap
- *   adicional para cada uno (a diferencia de lo que ocurriria si
- *   se usara el tipo envolvente Boolean).
  * ============================================================
  */
 public class Persona {
