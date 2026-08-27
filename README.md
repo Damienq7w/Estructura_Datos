@@ -1,6 +1,6 @@
 # 🦠 TDA Coronavirus — Simulación de Transmisión por Contacto
 
-¡Bienvenidos al repositorio de nuestro proyecto grupal para la materia de **Estructura de Datos**!
+Bienvenidos al repositorio de nuestro proyecto grupal para la materia de **Estructura de Datos**!!!
 
 ---
 
@@ -61,7 +61,7 @@ Para que el programa sea coherente con la realidad médica, se deben cumplir sie
 | **Camacho Monta Josue Jampier** | Documentación Técnica | Explicación detallada de invariantes, elaboración del diagrama UML, casos de prueba, conclusiones y bibliografía. |
 | **Chalco Tasna Kenneth Mateo** | Programador Java (Entidades) | Construcción de las clases base `Persona.java` y `Objeto.java` con sus métodos y pruebas unitarias. |
 | **Silva Camuendo Luis Alexander** | Programador Java (Lógica y Main) | Desarrollo de `CadenaTransmision.java` y la simulación completa en `Main.java` validando las reglas de contagio. |
-| **Tisalema Guashco Darwin Joel** | Programador C++ & Memoria | Implementación de todo el código en C++ (`Persona.cpp`, `Objeto.cpp`, `CadenaTransmision.cpp`, `main.cpp`) y análisis del uso de memoria (Java vs. C++). |
+| **Tisalema Guashco Darwin Joel** | Programador C++ & Memoria | Implementación de todo el código en C++ (`Persona.h`, `Objeto.h`, `CadenaTransmision.h`, `main.cpp`) y análisis del uso de memoria (Java vs. C++). |
 
 ---
 
@@ -80,10 +80,10 @@ Estructura_Datos/
 │
 ├── cpp/
 │   └── Transmision/
-│       ├── Persona.cpp               # Clase Persona (C++)
-│       ├── Objeto.cpp                # Clase Objeto (C++)
-│       ├── CadenaTransmision.cpp     # Lógica e interacciones (C++)
-│       └── main.cpp                  # Simulación en consola C++
+│       ├── Persona.h                 # Clase Persona 
+│       ├── Objeto.h                  # Clase Objeto 
+│       ├── CadenaTransmision.h       # Lógica e interacciones 
+│       └── main.cpp                  # Simulación en consola 
 │
 ├── docs/
 │   ├── Informe_TDA_Coronavirus.docx  # Documento editable
