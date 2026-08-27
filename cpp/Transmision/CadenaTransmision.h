@@ -9,20 +9,12 @@ using namespace std;
 const int MAX_PERSONAS = 10;
 const int MAX_OBJETOS  = 10;
 
-/*
- * ============================================================
- *  TDA CADENATRANSMISION
- * ============================================================
- * Es el TDA "administrador" del ejercicio: agrupa a todas las
- * Personas y todos los Objetos que participan en la simulacion
- * y permite consultar el estado GENERAL del sistema mediante
+/** 
+ * Permite consultar el estado GENERAL del sistema mediante
  * MostrarEstado().
  *
  * Se implementa con ARREGLOS ESTATICOS de punteros (Persona* y
- * Objeto*) de tamano fijo, siguiendo la misma metodologia vista
- * en clase para el manejo de colecciones con datos primitivos
- * (sin listas dinamicas ni contenedores de la STL como vector).
- * ============================================================
+ * Objeto*) de tamano fijo,para el manejo de colecciones con datos primitivos
  */
 class CadenaTransmision {
 private:
@@ -57,12 +49,9 @@ public:
         }
     }
 
-    // ------------------------------------------------------------
-    // OPERACION DEL TDA: MostrarEstado()
-    // Presenta el estado de [personas y objetos], es decir,
+    // Presenta el estado de [personas y objetos],
     // recorre los arreglos estaticos e invoca el mostrarEstado()
     // de cada Persona y cada Objeto registrados.
-    // ------------------------------------------------------------
     void mostrarEstado() const {
         cout << "\n===== ESTADO DE LA CADENA DE TRANSMISION =====" << endl;
         cout << "-- Personas --" << endl;
