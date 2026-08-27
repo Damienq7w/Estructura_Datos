@@ -1,39 +1,52 @@
-package Transmision;
+#ifndef PERSONA_H
+#define PERSONA_H
+
+#include <iostream>
+#include <string>
+#include "Objeto.h"
+using namespace std;
+
 /*
  * ============================================================
  *  TDA PERSONA
  * ============================================================
  * Representa a una persona dentro de la cadena de transmision
  * por contacto.
+ *
  * ------------------------------------------------------------
- * ESTADO DEL SISTEMA :
+ * ESTADO DEL SISTEMA (definido en el enunciado del ejercicio):
  *   infectada         : indica si la persona esta infectada
  *   manosContaminadas : indica si tiene el virus en las manos
- *                        (una persona puede tener las manos
- *                        contaminadas sin estar infectada)
+ *                        (una persona PUEDE tener las manos
+ *                        contaminadas SIN estar infectada)
  * ------------------------------------------------------------
  * DATOS PRIMITIVOS USADOS:
- *   boolean infectada;
- *   boolean manosContaminadas;
+ *   bool infectada;
+ *   bool manosContaminadas;
+ *
+ *   Ambos atributos son de tipo "bool" porque cada uno modela
+ *   una condicion de si/no (verdadero/falso). Son tipos
+ *   primitivos del lenguaje C++: se almacenan directamente
+ *   dentro de la memoria reservada para el objeto Persona
+ *   (en la pila, si la Persona es una variable local, o dentro
+ *   del bloque del objeto si fue creado con new), sin necesidad
+ *   de reservar memoria adicional en el heap, como si ocurriria
+ *   con un tipo de dato compuesto (clase u objeto).
  * ============================================================
  */
-public class Persona {
+class Persona {
+private:
+    string nombre;
+    bool infectada;           // DATO PRIMITIVO
+    bool manosContaminadas;   // DATO PRIMITIVO
 
-    private String nombre;
-    private boolean infectada;         // DATO PRIMITIVO
-    private boolean manosContaminadas; // DATO PRIMITIVO
-
-    // Constructor sin estado de infeccion: la persona nace sana.
-    public Persona(String nombre) {
-        this(nombre, false);
-    }
-
+public:
     // El parametro infectada permite crear el "paciente cero"
     // de la simulacion (por defecto una persona nace sana).
-    public Persona(String nombre, boolean infectada) {
-        this.nombre = nombre;
-        this.infectada = infectada;
-        this.manosContaminadas = false; // invariante inicial: manos limpias
+    Persona(string nombre, bool infectada = false) {
+        this->nombre = nombre;
+        this->infectada = infectada;
+        this->manosContaminadas = false; // invariante inicial: manos limpias
     }
 
     // ------------------------------------------------------------
@@ -44,14 +57,14 @@ public class Persona {
     // INVARIANTE 1: Solamente una persona infectada puede
     // contaminar un objeto mediante el estornudo.
     // ------------------------------------------------------------
-    public void estornudarSobreObjeto(Objeto obj) {
+    void estornudarSobreObjeto(Objeto &obj) {
         if (infectada) {
             obj.contaminar();
-            System.out.println(nombre + " estornuda sobre " + obj.getNombre()
-                    + " -> objeto CONTAMINADO.");
+            cout << nombre << " estornuda sobre " << obj.getNombre()
+                 << " -> objeto CONTAMINADO." << endl;
         } else {
-            System.out.println(nombre + " no esta infectada, "
-                    + obj.getNombre() + " permanece limpio.");
+            cout << nombre << " no esta infectada, "
+                 << obj.getNombre() << " permanece limpio." << endl;
         }
     }
 
@@ -61,14 +74,14 @@ public class Persona {
     //
     // INVARIANTE 2: tocar un objeto limpio NO contamina las manos.
     // ------------------------------------------------------------
-    public void tocarObjeto(Objeto obj) {
+    void tocarObjeto(Objeto &obj) {
         if (obj.estaContaminado()) {
             manosContaminadas = true;
-            System.out.println(nombre + " toca " + obj.getNombre()
-                    + " -> sus manos quedan CONTAMINADAS.");
+            cout << nombre << " toca " << obj.getNombre()
+                 << " -> sus manos quedan CONTAMINADAS." << endl;
         } else {
-            System.out.println(nombre + " toca " + obj.getNombre()
-                    + " (limpio) -> sus manos siguen limpias.");
+            cout << nombre << " toca " << obj.getNombre()
+                 << " (limpio) -> sus manos siguen limpias." << endl;
         }
     }
 
@@ -79,10 +92,10 @@ public class Persona {
     // INVARIANTE 5: lavarse las manos elimina la contaminacion
     // y evita continuar con la transmision.
     // ------------------------------------------------------------
-    public void lavarManos() {
+    void lavarManos() {
         manosContaminadas = false;
-        System.out.println(nombre + " se lava las manos -> manos limpias, "
-                + "cadena de transmision interrumpida.");
+        cout << nombre << " se lava las manos -> manos limpias, "
+             << "cadena de transmision interrumpida." << endl;
     }
 
     // ------------------------------------------------------------
@@ -91,14 +104,14 @@ public class Persona {
     // transmite el virus (por ejemplo, mediante un saludo de
     // mano) a las manos de otra persona.
     // ------------------------------------------------------------
-    public void tenerContacto(Persona otra) {
-        if (this.manosContaminadas) {
-            otra.manosContaminadas = true; // acceso valido: mismo tipo (Persona)
-            System.out.println(nombre + " tiene contacto con " + otra.nombre
-                    + " -> le contamina las manos.");
+    void tenerContacto(Persona &otra) {
+        if (this->manosContaminadas) {
+            otra.manosContaminadas = true;
+            cout << nombre << " tiene contacto con " << otra.nombre
+                 << " -> le contamina las manos." << endl;
         } else {
-            System.out.println(nombre + " tiene contacto con " + otra.nombre
-                    + " -> no hay transmision (manos limpias).");
+            cout << nombre << " tiene contacto con " << otra.nombre
+                 << " -> no hay transmision (manos limpias)." << endl;
         }
     }
 
@@ -113,40 +126,34 @@ public class Persona {
     // INVARIANTE 4: la infeccion ocurre al tocar ojos, nariz o
     // boca con las manos contaminadas.
     // ------------------------------------------------------------
-    public void tocarRostro() {
+    void tocarRostro() {
         if (manosContaminadas) {
             infectada = true;
-            System.out.println(nombre + " se toca el rostro con las manos "
-                    + "contaminadas -> SE INFECTA.");
+            cout << nombre << " se toca el rostro con las manos "
+                 << "contaminadas -> SE INFECTA." << endl;
         } else {
-            System.out.println(nombre + " se toca el rostro con las manos "
-                    + "limpias -> no ocurre infeccion.");
+            cout << nombre << " se toca el rostro con las manos "
+                 << "limpias -> no ocurre infeccion." << endl;
         }
     }
 
     // Metodos de consulta (getters), no forman parte de la tabla
     // de operaciones pero son necesarios para el main y para
     // tenerContacto()
-    public boolean estaInfectada() {
-        return infectada;
-    }
-
-    public boolean tieneManosContaminadas() {
-        return manosContaminadas;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
+    bool estaInfectada() const { return infectada; }
+    bool tieneManosContaminadas() const { return manosContaminadas; }
+    string getNombre() const { return nombre; }
 
     // ------------------------------------------------------------
     // OPERACION DEL TDA: MostrarEstado()
     // Presenta el estado actual de la persona por consola.
     // ------------------------------------------------------------
-    public void mostrarEstado() {
-        System.out.println("  Persona [" + nombre + "] -> Infectada: "
-                + (infectada ? "SI " : "NO ")
-                + "| Manos contaminadas: "
-                + (manosContaminadas ? "SI" : "NO"));
+    void mostrarEstado() const {
+        cout << "  Persona [" << nombre << "] -> Infectada: "
+             << (infectada ? "SI " : "NO ")
+             << "| Manos contaminadas: "
+             << (manosContaminadas ? "SI" : "NO") << endl;
     }
-}
+};
+
+#endif
