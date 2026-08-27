@@ -22,7 +22,7 @@ private:
 
 public:
     // El parametro infectada permite crear el "paciente cero"
-    //Ppor defecto una persona nace sana.
+    //Por defecto una persona esta sana.
     Persona(string nombre, bool infectada = false) {
         this->nombre = nombre;
         this->infectada = infectada;
@@ -47,7 +47,6 @@ public:
 
     // OPERACION: tocarObjeto()
     // Descripcion: el virus pasa del objeto a las manos.
-    //
     // INVARIANTE 2: tocar un objeto limpio NO contamina las manos.
     
     void tocarObjeto(Objeto &obj) {
@@ -63,7 +62,6 @@ public:
 
     // OPERACION: lavarManos()
     // Descripcion: elimina el virus e interrumpe la cadena.
-    //
     // INVARIANTE 5: lavarse las manos elimina la contaminacion
     // y evita continuar con la transmision.
     
@@ -91,7 +89,6 @@ public:
     // OPERACION: tocarRostro()
     // Descripcion: si las manos estan contaminadas, la persona
     // se infecta.
-    //
     // INVARIANTE 3: tener las manos contaminadas NO significa
     // estar infectada.
     // INVARIANTE 4: la infeccion ocurre al tocar ojos, nariz o

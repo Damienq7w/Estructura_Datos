@@ -1,10 +1,8 @@
-  //Una persona infectada contamina un objeto, otra persona lo
+ //Una persona infectada contamina un objeto, otra persona lo
  //toca, transporta el virus en sus manos y puede
  //infectarse al tocarse el rostro.
  //Este main.cpp simula paso a paso el escenario descrito en el
- //enunciado, mostrando el estado del sistema ANTES y DESPUES de
- //cada operacion, para evidenciar el cumplimiento de las 5
- //invariantes/reglas del TDA.
+ //enunciado, mostrando el estado del sistema ANTES y DESPUES de cada operacion.
 
 #include <iostream>
 #include <cstdlib>   // necesario para system("pause")

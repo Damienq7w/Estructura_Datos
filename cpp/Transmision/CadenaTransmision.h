@@ -12,9 +12,8 @@ const int MAX_OBJETOS  = 10;
 /** 
  * Permite consultar el estado GENERAL del sistema mediante
  * MostrarEstado().
- *
- * Se implementa con ARREGLOS ESTATICOS de punteros (Persona* y
- * Objeto*) de tamano fijo,para el manejo de colecciones con datos primitivos
+ * Se implementa con ARREGLOS ESTATICOS de punteros (Persona y
+ * Objeto) de tamano fijo,para el manejo de colecciones con datos primitivos
  */
 class CadenaTransmision {
 private:
@@ -49,7 +48,7 @@ public:
         }
     }
 
-    // Presenta el estado de [personas y objetos],
+    // Presenta el estado de personas y objetos,
     // recorre los arreglos estaticos e invoca el mostrarEstado()
     // de cada Persona y cada Objeto registrados.
     void mostrarEstado() const {
