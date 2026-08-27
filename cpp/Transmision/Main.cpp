@@ -5,7 +5,6 @@
  //enunciado, mostrando el estado del sistema ANTES y DESPUES de
  //cada operacion, para evidenciar el cumplimiento de las 5
  //invariantes/reglas del TDA.
-*/
 
 #include <iostream>
 #include <cstdlib>   // necesario para system("pause")
